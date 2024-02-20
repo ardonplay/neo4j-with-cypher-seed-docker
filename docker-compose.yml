@@ -5,18 +5,13 @@ services:
   neo4j:
     build:
       context: .
-    image: marcellodesales/neo4j-with-cypher-seed:${IMAGE_TAG:-latest}
+    image: semanticpie/neo4j:${IMAGE_TAG:-latest}
     environment:
       # - NEO4J_AUTH=neo4j/test # Just click on the login button without password
       - NEO4J_AUTH=none # Just click on the login button without password
-      # - NEO4J_USERNAME=neo4j
-      # - NEO4J_PASSWORD=test
     ports:
-      - "7474:7474"  # Go to http://localhost:7474/browser/ after bootstrapping
+      - "7474:7474" # Go to http://localhost:7474/browser/ after bootstrapping
       - "7687:7687"
     volumes:
-      - ./neo4j-runtime/data:/data"
-      - ./neo4j-runtime/logs:/logs"
-      - ./neo4j-runtime/import:/var/lib/neo4j/import"
-      - ./neo4j-runtime/plugins:/plugins"
+      - ./data:/data
       - ./cypher_query.cql:/cyphers/interviews.cql

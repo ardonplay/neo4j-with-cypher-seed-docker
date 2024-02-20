@@ -9,7 +9,7 @@ you need!
   * Example is in the file `cypher_query.cql`
 * Wrapper will execute Neo4J in the background and seed all the cyphers in the dir.
 
-> NOTE: Inspect our `docker-compose.yaml` for details
+> NOTE: Inspect our `docker-compose.yml` for details
 
 # Seed
 

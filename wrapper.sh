@@ -7,16 +7,12 @@ log_info() {
   return
 }
 
-# Adapted from https://github.com/neo4j/docker-neo4j/issues/166#issuecomment-486890785
-# Alpine is not supported anymore, so this is newer
-# Refactoring: Marcello.deSales+github@gmail.com
-
 # turn on bash's job control
 # https://stackoverflow.com/questions/11821378/what-does-bashno-job-control-in-this-shell-mean/46829294#46829294
 set -m
 
 # Start the primary process and put it in the background
-/docker-entrypoint.sh neo4j &
+/startup/docker-entrypoint.sh neo4j &
 
 # wait for Neo4j
 log_info "Waiting until neo4j stats at :7474 ..."
